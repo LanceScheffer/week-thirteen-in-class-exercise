@@ -10,19 +10,22 @@ export class OrderDashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  showOrder: boolean = false;
   allOrders = []
-  startingOrderNumber = 1;
+  public startingOrderNumber = 1;
 
- handle = setInterval(() => {
+ public eachOrder = setInterval(() => {
+  if(this.showOrder !== !setInterval)
   this.allOrders.push(this.startingOrderNumber++);
 
 }, 2000);
-startOrders(){ this.handle
+public startOrders(){
+   this.showOrder = !this.showOrder;
+   this.eachOrder
 }
 
-stopOrders(){
-  clearInterval(this.handle)
+public stopOrders(){
+  clearInterval(this.eachOrder)
 }
 
 }
