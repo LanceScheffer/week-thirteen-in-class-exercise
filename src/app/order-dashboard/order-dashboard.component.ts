@@ -12,19 +12,25 @@ export class OrderDashboardComponent implements OnInit {
   }
   showOrder: boolean = false;
   allOrders = []
-  public startingOrderNumber = 1;
+   startingOrderNumber = 1;
 
- public eachOrder = setInterval(() => {
+  eachOrder = setInterval(() => {
+    //if statement to keep timer from starting right away,
   if(this.showOrder !== !setInterval)
+    //allOrders array is linked to a ngForloop (html line 4)
+  //pushes startingOrderNumber value through allOrders array
+  //   ++ adds the next number to startingOrderNumber value
   this.allOrders.push(this.startingOrderNumber++);
 
 }, 2000);
-public startOrders(){
-   this.showOrder = !this.showOrder;
-   this.eachOrder
+ startOrders(){
+  // startOrders is a click function, that triggers the setInterval
+  //function. The setInterval(), stored inside of the eachOrder property
+   this.showOrder = !this.showOrder; this.eachOrder
 }
 
-public stopOrders(){
+ stopOrders(){
+  //clearInterval stops the loop. (line 4 html)
   clearInterval(this.eachOrder)
 }
 
